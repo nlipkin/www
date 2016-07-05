@@ -1,17 +1,43 @@
 <html data-page="construction">
     <head>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta charset="UTF-8">    
+        <meta http-equiv="content-type" content="text/html">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Сайт в разработке</title>
+        <title>Under Construction</title>
     </head>
     <body>
 <?php
 include 'header.php';
+
+$servername = "localhost";
+$username = "046508412_agr";
+$password = "SKdhf208*@7869";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_errno) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+
+$result = $conn->query("INSERT INTO test_table VALUES ('Ramzes', 18);");
+
+if($result){
+    while ($row = $result->fetch_assoc()) {
+    echo "<p>{$row['Username']}</p>";
+    }
+}
+else 
+    echo "<br/>No result";
 ?>
 
 
-            <h1>Сайт в разработке</h1>
+            <h1>Under Construction</h1>
             <p>Если вы являетесь администратором этого сайта, вам необходимо заменить эту страницу своими файлами.</p>
         <div id="root"></div>
     </body>
 </html>
+
+
