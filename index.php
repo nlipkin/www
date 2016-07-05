@@ -9,7 +9,7 @@
 <?php
 include 'header.php';
 
-$servername = "localhost";
+$servername = "mysql.nplipkin.myjino.ru";
 $username = "046508412_agr";
 $password = "SKdhf208*@7869";
 
@@ -23,6 +23,8 @@ if ($conn->connect_errno) {
 echo "Connected successfully";
 
 $result = $conn->query("INSERT INTO test_table VALUES ('Ramzes', 18);");
+
+echo $result;
 
 if($result){
     while ($row = $result->fetch_assoc()) {
