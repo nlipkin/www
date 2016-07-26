@@ -12,7 +12,7 @@ include 'header.php';
 $servername = "mysql.nplipkin.myjino.ru";
 $username = "046508412_agr";
 $password = "SKdhf208*@7869";
-
+/*
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 
@@ -32,7 +32,32 @@ if($result){
     }
 }
 else 
-    echo "<br/>No result";
+    echo "<br/>No result";*/
+
+    $link = mysqli_connect($servername, $username, $password , 'nplipkin_agregaster');
+
+if (!$link) {
+    die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+}
+
+echo 'Connected... ' . mysqli_get_host_info($link) . "\n";
+
+
+
+$sql = 'SELECT Username FROM test_table';
+echo $sql;
+$result = $link->query($sql);
+if (!$result) {
+    echo 'Error: ', $link->error;
+}
+else{
+    
+while ($row = $result->fetch_row()) {
+        printf ($row[0]);
+    }
+}
+
+
 ?>
 
 
